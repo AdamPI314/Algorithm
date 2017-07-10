@@ -45,7 +45,7 @@
         "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/number-of-islands-ii/",
         "lintcode": "http://www.lintcode.com/en/problem/number-of-islands-ii/"
       },
-      "notes": "",
+      "notes": "Union Find",
       "problem": "Number of Islands ii"
     }
   }
