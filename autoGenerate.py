@@ -6,9 +6,11 @@ import os
 import sys
 import copy
 import errno
+import shutil
+import stat
 
 
-def lowerOrUnderstore(c):
+def lowerOrUnderscore(c):
     if c is ' ':
         return '_'
     else:
@@ -17,15 +19,25 @@ def lowerOrUnderstore(c):
 
 def getDirectoryName(index, problem):
     name0 = str(index)
-    name1 = ''.join([lowerOrUnderstore(c) for c in problem])
+    name1 = ''.join([lowerOrUnderscore(c) for c in problem])
     return name0 + '_' + name1
 
 
-def createDirectory(directory):
+def createDirectory(folderName):
     try:
-        os.makedirs(directory)
+        os.makedirs(folderName)
     except OSError as e:
         if e.errno != errno.EEXIST:
+            raise
+
+
+def copyTemplate(templateFolderName, destinationFolderName):
+    try:
+        shutil.copytree(templateFolderName, destinationFolderName)
+    except OSError as exc:  # python >2.5
+        if exc.errno == errno.ENOTDIR:
+            shutil.copy(templateFolderName, destinationFolderName)
+        else:
             raise
 
 
@@ -40,6 +52,14 @@ if __name__ == "__main__":
     index = max([int(x) for x in data['problems'].keys()])
     newProblem = copy.deepcopy(data['problems'][str(index)])
 
-    # # create Folder
-    # dirName = getDirectoryName(index, newProblem['problem'])
-    # createDirectory(os.path.join(fileDir, "src", dirName))
+    dirName = getDirectoryName(index, newProblem['problem'])
+
+    # clear directory in case
+    if os.path.isdir(os.path.join(fileDir, "src", dirName)):
+        shutil.rmtree(os.path.join(fileDir, "src", dirName))
+
+    # copy template into new directory
+    copyTemplate(os.path.join(fileDir, "src", "cppTemplate"),
+                 os.path.join(fileDir, "src", dirName))
+
+    print("Job Finished.")
