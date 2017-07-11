@@ -251,14 +251,14 @@
         "zip_code": "80309"
       },
       "date": "Tue, Jul 11, 2017 11:01:45 AM",
-      "description": "",
+      "description": "https://brilliant.org/wiki/egg-dropping/",
       "link": {
         "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/palindrome-partitioning-ii/",
         "lintcode": "http://www.lintcode.com/en/problem/palindrome-partitioning-ii/"
       },
-      "notes": "",
+      "notes": "https://en.wikipedia.org/wiki/Memoization",
       "problem": "Palindrome Partitioning II",
-      "tags": []
+      "tags": ["overlapping subproblems", "memoization"]
     }
   }
 }
