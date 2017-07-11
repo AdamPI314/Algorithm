@@ -32,3 +32,5 @@ if __name__ == "__main__":
 
     with open(fileName, 'w') as fhandler:
         json.dump(data, fhandler, indent=2, sort_keys=True)
+
+    print("Job Finished.")

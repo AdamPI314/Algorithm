@@ -24,6 +24,7 @@ public:
 
 int main(int argc, char** argv)
 {
+  // initialization, data preparation
 
   // my solution
   Solution sln;

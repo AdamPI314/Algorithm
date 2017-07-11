@@ -48,7 +48,9 @@
       },
       "notes": "Union Find",
       "problem": "Number of Islands ii",
-      "tags": ["UnionFind"]
+      "tags": [
+        "UnionFind"
+      ]
     },
     "3": {
       "Address": "1201 University Ave, Boulder, CO 80302, USA",
@@ -73,7 +75,34 @@
       },
       "notes": "",
       "problem": "Next Permutation",
-      "tags": ["Permutation"]
+      "tags": [
+        "Permutation"
+      ]
+    },
+    "4": {
+      "Address": "3005 Arapahoe Ave, Boulder, CO 80303, USA",
+      "Geolocation": {
+        "city": "Denver",
+        "country_code": "US",
+        "country_name": "United States",
+        "ip": "96.88.77.243",
+        "latitude": "39.7199",
+        "longitude": "-104.8918",
+        "metro_code": "751",
+        "region_code": "CO",
+        "region_name": "Colorado",
+        "time_zone": "America/Denver",
+        "zip_code": "80230"
+      },
+      "date": "Mon, Jul 10, 2017  6:49:25 PM",
+      "description": "",
+      "link": {
+        "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/previous-permutation/",
+        "lintcode": "http://www.lintcode.com/en/problem/previous-permutation/"
+      },
+      "notes": "",
+      "problem": "Previous Permutation",
+      "tags": []
     }
   }
 }
