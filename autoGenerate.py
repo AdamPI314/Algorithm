@@ -8,6 +8,7 @@ import copy
 import errno
 import shutil
 import stat
+import re
 
 
 def lowerOrUnderscore(c):
@@ -30,6 +31,12 @@ def createDirectory(folderName):
         if e.errno != errno.EEXIST:
             raise
 
+def deleteTemporaryFile(folderName):
+    for f in os.listdir(folderName):
+        # print(f)
+        if re.search(r'[A-Z|a-z|0-9|_]+\.(obj|ilk|pdb|exe|in)+', f):
+            # print(f)
+            os.remove(os.path.join(folderName, f))
 
 def copyTemplate(templateFolderName, destinationFolderName):
     try:
@@ -48,18 +55,24 @@ if __name__ == "__main__":
     with open(fileName, 'r') as fhandler:
         data = json.load(fhandler)
 
-    # update index, prev+1
+    # clear previous project directory
+    index = max([int(x) for x in data['problems'].keys()]) - 1
+    newProblem = copy.deepcopy(data['problems'][str(index)])
+    dirName = getDirectoryName(index, newProblem['problem'])
+    deleteTemporaryFile(os.path.join(fileDir, "src", dirName))
+
+    # update index
     index = max([int(x) for x in data['problems'].keys()])
     newProblem = copy.deepcopy(data['problems'][str(index)])
-
     dirName = getDirectoryName(index, newProblem['problem'])
 
     # clear directory in case
     if os.path.isdir(os.path.join(fileDir, "src", dirName)):
-        shutil.rmtree(os.path.join(fileDir, "src", dirName))
-
-    # copy template into new directory
-    copyTemplate(os.path.join(fileDir, "src", "cppTemplate"),
-                 os.path.join(fileDir, "src", dirName))
+        # shutil.rmtree(os.path.join(fileDir, "src", dirName))
+        print(str(os.path.join(fileDir, "src", dirName)) + " Directory exist alreay, please confirm and delete manually!")
+    else:
+        # copy template into new directory
+        copyTemplate(os.path.join(fileDir, "src", "cppTemplate"),
+                    os.path.join(fileDir, "src", dirName))
 
     print("Job Finished.")
