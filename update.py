@@ -8,6 +8,19 @@ import copy
 
 import geolocation
 
+
+class MyStr(str):
+    def __lt__(self, other):
+        """Override the default Equals behavior"""
+        if isinstance(other, self.__class__):
+            return int(self) < int(other)
+        return NotImplemented
+    def __gt__(self, other):
+        """Override the default Equals behavior"""
+        if isinstance(other, self.__class__):
+            return int(self) > int(other)
+        return NotImplemented
+
 if __name__ == "__main__":
     fileDir = os.path.abspath(os.path.join(
         os.path.realpath(sys.argv[0]), os.pardir))
@@ -30,7 +43,13 @@ if __name__ == "__main__":
 
     data['problems'][str(index)] = newProblem
 
+    newData = dict()
+    newData['problems'] = dict()
+    for key, val in data['problems'].items():
+        newData['problems'][MyStr(key)] = val
+
+
     with open(fileName, 'w') as fhandler:
-        json.dump(data, fhandler, indent=2, sort_keys=True)
+        json.dump(newData, fhandler, indent=2, sort_keys=True)
 
     print("Job Finished.")
