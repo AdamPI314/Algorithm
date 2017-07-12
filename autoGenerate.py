@@ -31,12 +31,14 @@ def createDirectory(folderName):
         if e.errno != errno.EEXIST:
             raise
 
+
 def deleteTemporaryFile(folderName):
     for f in os.listdir(folderName):
         # print(f)
         if re.search(r'[A-Z|a-z|0-9|_]+\.(obj|ilk|pdb|exe|in)+', f):
             # print(f)
             os.remove(os.path.join(folderName, f))
+
 
 def copyTemplate(templateFolderName, destinationFolderName):
     try:
@@ -69,10 +71,11 @@ if __name__ == "__main__":
     # clear directory in case
     if os.path.isdir(os.path.join(fileDir, "src", dirName)):
         # shutil.rmtree(os.path.join(fileDir, "src", dirName))
-        print(str(os.path.join(fileDir, "src", dirName)) + " Directory exist alreay, please confirm and delete manually!")
+        print(str(os.path.join(fileDir, "src", dirName)) +
+              " Directory exist alreay, please confirm and delete manually!")
     else:
         # copy template into new directory
         copyTemplate(os.path.join(fileDir, "src", "cppTemplate"),
-                    os.path.join(fileDir, "src", dirName))
+                     os.path.join(fileDir, "src", dirName))
 
     print("Job Finished.")

@@ -9,6 +9,8 @@
 #include <string>
 #include <cstring>
 #include <cstdlib>
+#include <numeric>
+#include <functional>
 
 #include "../../include/fileIO/fileIO.h"
 #include "../../include/dataStructure/dataStructure.h"

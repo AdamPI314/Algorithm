@@ -10,11 +10,13 @@ import geolocation
 
 
 class MyStr(str):
+
     def __lt__(self, other):
         """Override the default Equals behavior"""
         if isinstance(other, self.__class__):
             return int(self) < int(other)
         return NotImplemented
+
     def __gt__(self, other):
         """Override the default Equals behavior"""
         if isinstance(other, self.__class__):
@@ -48,8 +50,7 @@ if __name__ == "__main__":
     for key, val in data['problems'].items():
         newData['problems'][MyStr(key)] = val
 
-
     with open(fileName, 'w') as fhandler:
-        json.dump(newData, fhandler, indent=2, sort_keys=True)
+        json.dump(newData, fhandler, indent=4, sort_keys=True)
 
     print("Job Finished.")
