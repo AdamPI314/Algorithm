@@ -18,20 +18,17 @@ using namespace std;
 
 class Solution
 {
-public:
-
+  public:
 };
 
-int main(int argc, char** argv)
+int main(int argc, char **argv)
 {
-  // initialization, data preparation
+	// initialization, data preparation
 
-  // my solution
-  Solution sln;
+	// my solution
+	Solution sln;
 
-  // correct answer
-  
+	// correct answer
 
-  return EXIT_SUCCESS;
-
+	return EXIT_SUCCESS;
 }
