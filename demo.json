@@ -459,9 +459,9 @@
                 "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/maximum-subarray-difference",
                 "lintcode": "http://www.lintcode.com/en/problem/maximum-subarray-difference/"
             },
-            "notes": "",
+            "notes": "kind of cute, combine maximum subarray and minimum subarray.",
             "problem": "Maximum Subarray Difference",
-            "tags": []
+            "tags": ["smart", "minimum", "subarray"]
         }
     }
 }
