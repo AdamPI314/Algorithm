@@ -437,6 +437,31 @@
             "notes": "",
             "problem": "Maximum Product Subarray",
             "tags": []
+        },
+        "18": {
+            "Address": "1720 Pleasant St, Boulder, CO 80302, USA",
+            "Geolocation": {
+                "city": "Boulder",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "128.138.65.202",
+                "latitude": "40.015",
+                "longitude": "-105.2706",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80309"
+            },
+            "date": "Wed, Jul 12, 2017  4:31:43 PM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/maximum-subarray-difference",
+                "lintcode": "http://www.lintcode.com/en/problem/maximum-subarray-difference/"
+            },
+            "notes": "",
+            "problem": "Maximum Subarray Difference",
+            "tags": []
         }
     }
 }
