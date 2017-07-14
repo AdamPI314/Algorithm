@@ -39,36 +39,41 @@ class Solution
 			f[i][i] = f[i - 1][i - 1] + nums[i - 1];
 			p[i][i] = f[i][i];
 			sum = f[i][i];
+			// i sub-intervals, at least i numbers, but i number is handled already, so j = i+1
 			for (int j = i + 1; j <= n; j++)
 			{
+				// p is global, corrent answer with i sub-intervals, j numbers
 				// what f[i][j] is tracking here? max i sub-intervals, j numbers
+				// it seems j[i][j] represents, max, i sub-intervals, j numbers, the last intervals must contains nums[j-1] 
 				if (f[i][j - 1] < p[i - 1][j - 1])
 				{
+					// current number, nums[j-1], as a individual intervals
 					f[i][j] = p[i - 1][j - 1] + nums[j - 1];
 				}
 				else
 				{
+					// current number, nums[j-1], not as a individual intervals, 
+					// but append to last interval of f[i][j-1] since, the last interval of f[i][j-1] must contains nums[j-2]
+					// so, f[i][j] always including current number, nums[j-1]
 					f[i][j] = f[i][j - 1] + nums[j - 1];
 				}
 				sum = max(sum, f[i][j]);
 				p[i][j] = sum;
 			}
 		}
-		int result = INT_MIN;
-		for (int i = k; i <= n; i++)
-		{
-			result = max(result, f[k][i]);
-		}
-		return result;
+		return p[k][n];
 	}
 };
 
 int main(int argc, char **argv)
 {
 	// initialization, data preparation
-	vector<int> nums;
-	int k;
-	fileIO::vector_int("./input.in", nums, k);
+	// vector<int> nums;
+	// int k;
+	// fileIO::vector_int("./input.in", nums, k);
+
+	vector<int> nums = {1, 3, -100, 1};
+	int k = 1;
 
 	// my solution
 	Solution sln;
