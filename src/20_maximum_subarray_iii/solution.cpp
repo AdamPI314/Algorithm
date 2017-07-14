@@ -42,9 +42,10 @@ class Solution
 			// i sub-intervals, at least i numbers, but i number is handled already, so j = i+1
 			for (int j = i + 1; j <= n; j++)
 			{
-				// p is global, corrent answer with i sub-intervals, j numbers
+				// p is global, correct answer with i sub-intervals, j numbers
 				// what f[i][j] is tracking here? max i sub-intervals, j numbers
-				// it seems j[i][j] represents, max, i sub-intervals, j numbers, the last intervals must contains nums[j-1] 
+				// it seems j[i][j] represents, max, i sub-intervals, j numbers,
+				// the last intervals must contains nums[j-1] 
 				if (f[i][j - 1] < p[i - 1][j - 1])
 				{
 					// current number, nums[j-1], as a individual intervals
@@ -53,7 +54,8 @@ class Solution
 				else
 				{
 					// current number, nums[j-1], not as a individual intervals, 
-					// but append to last interval of f[i][j-1] since, the last interval of f[i][j-1] must contains nums[j-2]
+					// but append to last interval of f[i][j-1] since the last interval of f[i][j-1] 
+					// must contains nums[j-2]
 					// so, f[i][j] always including current number, nums[j-1]
 					f[i][j] = f[i][j - 1] + nums[j - 1];
 				}
