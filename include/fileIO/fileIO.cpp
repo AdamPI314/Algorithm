@@ -22,40 +22,62 @@ namespace fileIO
 
 void int_int_int_sparse_matrix(std::string fileName, int &m, int &n, std::vector<Point> &mat)
 {
-  std::fstream fin(fileName.c_str());
+	std::fstream fin(fileName.c_str());
 
-  int counter = 0;
+	int counter = 0;
 
-  std::string str;
-  Point p;
+	std::string str;
+	Point p;
 
-  while (fin.good())
-  {
-    getline(fin, str, ',');
-    str.erase(std::remove_if(str.begin(), str.end(), [&](const char c) { return c == '[' || c == ']' || c == ' '; }), str.end());
-    int num = std::stoi(str);
-    if (num >= 0 && num < INT_MAX)
-    {
-      if (counter == 0)
-        m = num;
-      else if (counter == 1)
-        n = num;
+	while (fin.good())
+	{
+		getline(fin, str, ',');
+		str.erase(std::remove_if(str.begin(), str.end(), [&](const char c) { return c == '[' || c == ']' || c == ' '; }), str.end());
+		int num = std::stoi(str);
+		if (num >= 0 && num < INT_MAX)
+		{
+			if (counter == 0)
+				m = num;
+			else if (counter == 1)
+				n = num;
 
-      else {
-        if (counter%2 == 0)
-          p.x = num;
-        else {
-          p.y = num;
-          mat.push_back(p);
-        }
-      }
+			else
+			{
+				if (counter % 2 == 0)
+					p.x = num;
+				else
+				{
+					p.y = num;
+					mat.push_back(p);
+				}
+			}
 
-      ++counter;
-    }
-  }
+			++counter;
+		}
+	}
 
-  fin.close();
-  fin.clear();
+	fin.close();
+	fin.clear();
+}
+
+void vector_int(std::string fileName, std::vector<int> &vec, int &m)
+{
+	std::fstream fin(fileName.c_str());
+
+	std::string str;
+	while (fin.good())
+	{
+		std::getline(fin, str, ',');
+		str.erase(std::remove_if(str.begin(), str.end(),
+								 [&](char c) { return c == ',' || c == '[' || c == ']' || c == ' '; }));
+		int num = std::stoi(str);
+		vec.push_back(num);
+	}
+	m = vec.back();
+	vec.pop_back();
+
+	fin.close();
+	fin.clear();
 }
 
 } //namespace;

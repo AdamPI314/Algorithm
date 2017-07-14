@@ -3,9 +3,8 @@
 
 #include "dataStructure.h"
 
-namespace dataStructure{
-
-
+namespace dataStructure
+{
 };
 
 #endif

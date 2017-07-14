@@ -17,21 +17,21 @@ namespace misc
 
 class UnionFind
 {
-  // Weighted Quick Union With PathCompression
-public:
-  UnionFind(int n);
-public:
-  // id
-  std::vector<int> id;
-  // weight
-  std::vector<int> w;
+	// Weighted Quick Union With PathCompression
+  public:
+	UnionFind(int n);
 
-public:
-  int root(int i);
-  bool find(int p, int q);
-  void unite(int p, int q);
+  public:
+	// id
+	std::vector<int> id;
+	// weight
+	std::vector<int> w;
+
+  public:
+	int root(int i);
+	bool find(int p, int q);
+	void unite(int p, int q);
 };
-
 
 } //namespace;
 

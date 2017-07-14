@@ -8,24 +8,23 @@ namespace dataStructure
  */
 struct Point
 {
-  int x = 0;
-  int y = 0;
-  Point() {}
-  Point(int a, int b) : x(a), y(b) {}
+	int x = 0;
+	int y = 0;
+	Point() {}
+	Point(int a, int b) : x(a), y(b) {}
 };
 
 class ListNode
 {
-public:
-  int val;
-  ListNode *next;
-  ListNode(int val)
-  {
-    this->val = val;
-    this->next = nullptr;
-  }
+  public:
+	int val;
+	ListNode *next;
+	ListNode(int val)
+	{
+		this->val = val;
+		this->next = nullptr;
+	}
 };
-
 };
 
 #endif
