@@ -12,16 +12,26 @@ import re
 
 
 def lowerOrUnderscore(c):
-    if c is ' ':
-        return '_'
+    result = c.lower()
+    if result >= 'a' and result <= 'z':
+        return result
     else:
-        return c.lower()
+        return '_'
 
 
 def getDirectoryName(index, problem):
     name0 = str(index)
     name1 = ''.join([lowerOrUnderscore(c) for c in problem])
-    return name0 + '_' + name1
+    name2 = ''
+    for i in range(0, len(name1)):
+        if i == 0:
+            name2 += name1[i]
+            continue
+        if name1[i] == name1[i - 1] and name1[i - 1] == '_':
+            continue
+        else:
+            name2 += name1[i]
+    return name0 + '_' + name2
 
 
 def createDirectory(folderName):
