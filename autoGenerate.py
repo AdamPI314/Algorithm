@@ -50,6 +50,11 @@ def copyTemplate(templateFolderName, destinationFolderName):
             raise
 
 
+def generateMessageFile(folderName, messageFileName="message.txt", message=""):
+    with open(os.path.join(folderName, messageFileName), 'w') as fhandler:
+        fhandler.write(message)
+
+
 if __name__ == "__main__":
     fileDir = os.path.abspath(os.path.join(
         os.path.realpath(sys.argv[0]), os.pardir))
@@ -67,6 +72,10 @@ if __name__ == "__main__":
     index = max([int(x) for x in data['problems'].keys()])
     newProblem = copy.deepcopy(data['problems'][str(index)])
     dirName = getDirectoryName(index, newProblem['problem'])
+
+    # generate message file
+    generateMessageFile(fileDir, "message.txt", str(
+        index) + " " + newProblem['problem'] + ".")
 
     # clear directory in case
     if os.path.isdir(os.path.join(fileDir, "src", dirName)):
