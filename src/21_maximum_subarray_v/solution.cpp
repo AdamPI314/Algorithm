@@ -59,11 +59,12 @@ class Solution
 			maxSum = max(maxSum, sum[i + k1 - 1] - min_tmp);
 
 
-			if (i-k2+k1 >= 0)
-			{
-				pre_min.erase(pre_min.find(sum[i-k2+k1]));
-				pre_min.insert(sum[i]);
-			}
+			if (i-k2+k1-1 >= 0)
+				pre_min.erase(pre_min.find(sum[i-k2+k1-1]));
+			else
+				pre_min.erase(pre_min.find(0));
+
+			pre_min.insert(sum[i]);
 		}
 
 		return maxSum;
