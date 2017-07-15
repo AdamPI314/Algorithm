@@ -1,1 +1,1 @@
-24 Two Sum - Difference equals to target.
+25 Two Sum - Greater than target.

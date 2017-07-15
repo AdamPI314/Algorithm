@@ -616,6 +616,31 @@
             "notes": "",
             "problem": "Two Sum - Difference equals to target",
             "tags": []
+        },
+        "25": {
+            "Address": "2707 Valmont Rd, Boulder, CO 80304, USA",
+            "Geolocation": {
+                "city": "Boulder",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "2601",
+                "latitude": "40.0496",
+                "longitude": "-105.2769",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80304"
+            },
+            "date": "Sat, Jul 15, 2017  3:03:25 PM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/two-sum-greater-than-target/",
+                "lintcode": "http://www.lintcode.com/en/problem/two-sum-greater-than-target/"
+            },
+            "notes": "",
+            "problem": "Two Sum - Greater than target",
+            "tags": []
         }
     }
 }
