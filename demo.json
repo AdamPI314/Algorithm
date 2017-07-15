@@ -591,31 +591,6 @@
             "notes": "",
             "problem": "Partition Array II",
             "tags": []
-        },
-        "24": {
-            "Address": "",
-            "Geolocation": {
-                "city": "Boulder",
-                "country_code": "US",
-                "country_name": "United States",
-                "ip": "2601",
-                "latitude": "40.0496",
-                "longitude": "-105.2769",
-                "metro_code": "751",
-                "region_code": "CO",
-                "region_name": "Colorado",
-                "time_zone": "America/Denver",
-                "zip_code": "80304"
-            },
-            "date": "",
-            "description": "",
-            "link": {
-                "jiuzhangsuanfa": "",
-                "lintcode": ""
-            },
-            "notes": "",
-            "problem": "",
-            "tags": []
         }
     }
 }
