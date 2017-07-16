@@ -691,6 +691,31 @@
             "notes": "",
             "problem": "Triangle Count",
             "tags": []
+        },
+        "28": {
+            "Address": "2707 Valmont Rd, Boulder, CO 80304, USA",
+            "Geolocation": {
+                "city": "Boulder",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "2601",
+                "latitude": "40.0496",
+                "longitude": "-105.2769",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80304"
+            },
+            "date": "Sun, Jul 16, 2017 11:01:32 AM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/3sum-closest/",
+                "lintcode": "http://www.lintcode.com/en/problem/3sum-closest/"
+            },
+            "notes": "",
+            "problem": "3Sum Closest",
+            "tags": []
         }
     }
 }

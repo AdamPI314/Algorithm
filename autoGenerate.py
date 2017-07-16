@@ -13,7 +13,7 @@ import re
 
 def lowerOrUnderscore(c):
     result = c.lower()
-    if result >= 'a' and result <= 'z':
+    if (result >= 'a' and result <= 'z') or (result >= '0' and result <= '9'):
         return result
     else:
         return '_'
