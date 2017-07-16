@@ -1,1 +1,1 @@
-26 Kth Smallest Numbers in Unsorted Array.
+27 Triangle Count.
