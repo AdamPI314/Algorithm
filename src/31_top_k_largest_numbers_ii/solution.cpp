@@ -21,36 +21,43 @@
 
 using namespace std;
 
-class Solution {
-public:
+class Solution
+{
+  public:
 	int k = 0;
-	set<int> hash();
+	multiset<int, std::greater<int>> hash;
 
-public:
-    Solution(int k) {
-        // initialize your data structure here.
-		this.k = k;
-    }
+  public:
+	Solution(int k)
+	{
+		// initialize your data structure here.
+		this->k = k;
+	}
 
-    void add(int num) {
-        // Write your code here
+	void add(int num)
+	{
+		// Write your code here
 		hash.insert(num);
 		if (hash.size() > k)
+			hash.erase(std::prev(hash.end()));
+	}
 
-    }
-
-    vector<int> topk() {
-        // Write your code here
-    }
+	vector<int> topk()
+	{
+		// Write your code here
+		return vector<int>(hash.begin(), hash.end());
+	}
 };
-
 
 int main(int argc, char **argv)
 {
 	// initialization, data preparation
 
 	// my solution
-	Solution sln;
+	Solution sln(3);
+	sln.add(3);
+	sln.add(10);
+	auto result = sln.topk();
 
 	// correct answer
 
