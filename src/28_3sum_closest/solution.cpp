@@ -36,36 +36,31 @@ class Solution
 			return 0;
 		// O(nlog(n))
 		sort(nums.begin(), nums.end());
-		vector<int> tmp;
+		int result = nums[0] + nums[1] + nums[2];
 
-		int k = target / 3;
-		// O(log(n))
-		int x1 = lower_bound(nums.begin(), nums.end(), k) - nums.begin();
-		int x2 = upper_bound(nums.begin(), nums.end(), k) - nums.begin();
-		// gonna be a circle
-		for (int i = -3; i < 3; ++i)
+		for (int i = 0; i < n; ++i)
 		{
-			int ind = x1 + i;
-			tmp.push_back(nums[(ind)%n] + nums[(ind+1)%n] + nums[(ind+2)%n]);
+			int start = i + 1, end = n - 1;
+			while(start < end)
+			{
+				int tmp = nums[i] + nums[start] + nums[end];
+				if (abs(tmp - target) < abs(result - target))
+					result = tmp;
+				if (tmp < target)
+					++start;
+				else
+					--end;
+			}
 		}
-		for (int i = -3; i < 3; ++i)
-		{
-			int ind = x2 + i;
-			tmp.push_back(nums[(ind)%n] + nums[(ind+1)%n] + nums[(ind+2)%n]);
-		}
-		// one more search O(log(n))
-				
 
-		// return closest to target
-		return *min_element(tmp.begin(), tmp.end(),
-							[target](const int x1, const int x2) -> bool { return abs(x1 - target) < abs(x2 - target); });
+		return result;
 	}
 };
 
 int main(int argc, char **argv)
 {
 	// initialization, data preparation
-	vector<int> nums = {-2,-3,-4,-5,-100,99,1,4,4,4,5,1,0,-1,2,3,4,5};
+	vector<int> nums = {-2, -3, -4, -5, -100, 99, 1, 4, 4, 4, 5, 1, 0, -1, 2, 3, 4, 5};
 	int target = 77;
 	// my solution
 	Solution sln;
