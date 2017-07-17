@@ -32,16 +32,17 @@ class Solution
 	{
 		// Write your code here
 		int k = arrays.size() - 1;
-		vector<int> tmp;
 		while (k > 0)
 		{
 			int i = 0, j = k;
 			while (i < j)
 			{
-				tmp.resize(arrays[i].size() + arrays[j].size());
-				std::merge(arrays[i].begin(), arrays[i].end(), arrays[j].begin(), arrays[j].end(),
-							   tmp.begin());
-				arrays[i].assign(tmp.begin(), tmp.end());
+				int n = arrays[i].size();
+				arrays[i].resize(arrays[i].size() + arrays[j].size());
+				std::copy(arrays[j].begin(), arrays[j].end(), arrays[i].begin() + n);
+				std::inplace_merge(arrays[i].begin(), arrays[i].begin() + n, arrays[i].end());
+				// destroy arrays[j], free memory
+				arrays[j].resize(0);
 				++i;
 				--j;
 			}
