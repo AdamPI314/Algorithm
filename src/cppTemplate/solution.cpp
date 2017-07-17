@@ -14,6 +14,7 @@
 #include <cstdlib>
 #include <numeric>
 #include <functional>
+#include <iterator>
 
 #include "../../include/fileIO/fileIO.h"
 #include "../../include/dataStructure/dataStructure.h"
