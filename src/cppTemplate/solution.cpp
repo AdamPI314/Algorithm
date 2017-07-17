@@ -6,6 +6,7 @@
 #include <map>
 #include <queue>
 #include <stack>
+#include <forward_list>
 #include <algorithm>
 #include <climits>
 #include <string>
