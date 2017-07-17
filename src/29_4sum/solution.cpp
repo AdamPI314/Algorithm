@@ -41,17 +41,11 @@ class Solution
 		for (int i = 0; i < n; ++i)
 		{
 			if (i > 0)
-			{
-				i = upper_bound(nums.begin() + i, nums.end(), nums[i - 1]) - nums.begin();
-				continue;
-			}
+				i = upper_bound(nums.begin() + i - 1, nums.end(), nums[i - 1]) - nums.begin();
 			for (int j = i + 1; j < n; ++j)
 			{
 				if (j > i + 1)
-				{
-					j = upper_bound(nums.begin() + j, nums.end(), nums[j - 1]) - nums.begin();
-					continue;
-				}
+					j = upper_bound(nums.begin() + j - 1, nums.end(), nums[j - 1]) - nums.begin();
 				int start = j + 1, end = n - 1;
 				int tmp1 = nums[i] + nums[j] - target;
 				while (start < end)
@@ -62,16 +56,12 @@ class Solution
 						result.push_back(vector<int>{nums[i], nums[j], nums[start], nums[end]});
 
 						start = upper_bound(nums.begin() + start, nums.begin() + end, nums[start]) - nums.begin();
-						end = lower_bound(nums.begin() + start, nums.begin() + end, nums[end]) - nums.begin() - 1;
+						end = lower_bound(nums.begin() + start, nums.begin() + end + 1, nums[end]) - nums.begin() - 1;
 					}
 					else if (tmp2 > 0)
-					{
 						end = lower_bound(nums.begin() + start, nums.begin() + end, nums[end]) - nums.begin() - 1;
-					}
 					else
-					{
-						start = upper_bound(nums.begin() + start, nums.begin() + end, nums[start]) - nums.begin();
-					}
+						start = upper_bound(nums.begin() + start, nums.begin() + end + 1, nums[start]) - nums.begin();
 				}
 			}
 		}
