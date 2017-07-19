@@ -172,7 +172,7 @@ class Solution
     {
         // write your code here
         int len = A.size();
-        // for all leaf nodes, len/2 gives the index of first leaf
+        // for all none leaf nodes, len/2 gives the index of first leaf
         // since min_heapify assume subtrees are heapified
         for (int i = len / 2; i >= 0; i--)
             min_heapify(A, i, len);
