@@ -18,7 +18,10 @@
 		"command": "g++",
 		"args": [
 			"-Wall",
+			"-g",
 			"-std=c++11",
+			"-o",
+			"solution.exe",
 			"solution.cpp"
 		],
 		"isShellCommand": true,
