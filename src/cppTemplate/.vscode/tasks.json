@@ -17,7 +17,6 @@
 	"linux": {
 		"command": "g++",
 		"args": [
-			"-Wall",
 			"-g",
 			"-std=c++11",
 			"-o",
@@ -45,7 +44,6 @@
 	"osx": {
 		"command": "clang++",
 		"args": [
-			"-Wall",
 			"solution.cpp",
 			"-v"
 		],
