@@ -23,52 +23,44 @@
 
 using namespace std;
 
-class Solution
-{
-  public:
-	/**
+bool cmp(const pair<int,int>&x, const pair<int, int>&y) {
+  return x.first != y.first ? x.first < y.first : x.second > y.second;
+}
+
+class Solution {
+public:
+    /**
      * @param envelopes a number of envelopes with widths and heights
      * @return the maximum number of envelopes
      */
-	int maxEnvelopes(vector<pair<int, int>> &envelopes)
-	{
-		// Write your code here
-		int n = envelopes.size();
-		if (n == 0)
-			return -1;
+    int maxEnvelopes(vector<pair<int, int>>& envelopes) {
+        // Write your code here
+        int n = envelopes.size();
+        if (n == 0) {
+            return 0;
+        }
+    
+        sort(envelopes.begin(), envelopes.end(), cmp);
+		// dp save (max - 1) up to current point, including current point
+        vector<int> dp(n), height(n+1, INT_MAX);
+        for (int i = 0; i < n; i++) {
+			// replace the first value that is greater than envelopes[i].second, height is ordered
+			// if envelopes[i].second is greater than all previous value, append it to the end
 
-		std::function<bool(const pair<int, int> &, const pair<int, int> &)> cmp = [](const pair<int, int> &p1, const pair<int, int> &p2) -> bool {
-			if (p1.first == p2.first)
-				return p1.second > p2.second;
-			return p1.first < p2.first;
-		};
-
-		std::set<pair<int, int>, decltype(cmp)> myset(envelopes.begin(), envelopes.end(), cmp);
-		n = myset.size();
-		std::copy(myset.begin(), myset.end(), envelopes.begin());
-
-		if (n == 1)
-			return 1;
-
-		int maxLen = INT_MIN;
-		// path stores the maximum path length including current node
-		vector<int> path(n, 1);
-		for (int i = 1; i < n; ++i)
-		{
-			for (int j = 0; j < i; ++j)
-			{
-				if (envelopes[i].first == envelopes[j].first)
-					break;
-				if (envelopes[i].second > envelopes[j].second)
-				{
-					path[i] = max(path[i], path[j] + 1);
-				}
-			}
-			maxLen = max(maxLen, path[i]);
-		}
-
-		return maxLen;
-	}
+			// As a result, height store all the y-axis value of points to which x-axis < current-x-axis,
+			// y-axis < current-y-axis
+            int k = lower_bound(height.begin(), height.end(), envelopes[i].second) - height.begin() ;
+            height[k] = envelopes[i].second;
+            
+			dp[i] = k;
+        }
+    
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            ans = max(ans, dp[i]);
+        }
+        return ans + 1;
+    }
 };
 
 int main(int argc, char **argv)
