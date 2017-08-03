@@ -54,6 +54,12 @@ class Solution
 
             // As a result, height store all the y-axis value of points to which x-axis < current-x-axis,
             // y-axis < current-y-axis
+            
+            // we got to think about the future, how current node will affect the upcoming node,
+            // for example, we have {{1,10},{1,9},{1,8},{2,100}}, obviously, the last envelop can tolerate envelops before
+            // But, the first three cannot tolerate each other, which means, up to {1,8}, just need to keep {1,8},
+            // discard {1,10}, {1,9} will not affect the number of envelops {2,100} can be fit in, that number is 1 whatever
+            // Keep the lowest number, replace the first one that's greater than it, is a low limit guarantee strategy.
             int k = lower_bound(height.begin(), height.end(), envelopes[i].second) - height.begin();
             height[k] = envelopes[i].second;
 
