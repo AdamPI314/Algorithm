@@ -7,6 +7,7 @@ import sys
 import copy
 
 import geolocation
+import getDate
 
 
 class MyStr(str):
@@ -34,7 +35,7 @@ if __name__ == "__main__":
     index = max([int(x) for x in data['problems'].keys()]) + 1
     newProblem = copy.deepcopy(data['problems']['1'])
 
-    newProblem['date'] = ''
+    newProblem['date'] = getDate.get_date() 
     newProblem['Address'] = ''
     newProblem['Geolocation'] = geolocation.getGeolocation()
     newProblem['problem'] = ''
