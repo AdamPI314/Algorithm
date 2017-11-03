@@ -1,1 +1,1 @@
-47 k Sum.
+48 Min Stack.

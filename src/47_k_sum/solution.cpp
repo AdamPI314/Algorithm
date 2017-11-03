@@ -56,7 +56,7 @@ public:
           f[i][j][t] += f[i - 1][j][t];
         }// for t
       }// for j
-    } // for i
+    }// for i
     return f[n][k][target];
   }
 };
