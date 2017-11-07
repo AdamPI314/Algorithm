@@ -27,6 +27,9 @@ using namespace std;
 class MinStack
 {
 public:
+  stack<int> stk, minstk;
+
+  MinStack() {}
   /*
     * @param a: An integer
     */
@@ -34,7 +37,6 @@ public:
   {
     // do intialization if necessary
   }
-
   /*
      * @param number: An integer
      * @return: nothing
@@ -42,6 +44,9 @@ public:
   void push(int number)
   {
     // write your code here
+    stk.push(number);
+    if (minstk.empty() || number <= minstk.top())
+      minstk.push(number);
   }
 
   /*
@@ -50,6 +55,11 @@ public:
   int pop()
   {
     // write your code here
+    int top = stk.top();
+    stk.pop();
+    if (top == minstk.top())
+      minstk.pop();
+    return top;
   }
 
   /*
@@ -58,6 +68,7 @@ public:
   int min()
   {
     // write your code here
+    return minstk.top();
   }
 };
 
