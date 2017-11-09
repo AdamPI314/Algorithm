@@ -26,8 +26,8 @@ using namespace std;
 
 class Solution
 {
-public:
-  /**
+  public:
+    /**
      * @param s: A string 
      * @param p: A string includes "." and "*"
      * @return: A boolean
@@ -37,41 +37,57 @@ public:
     不考虑'*'的话，题目变成简单的匹配。考虑'*'，可能产生的情况有匹配0、1、2…个字符
     因此可以使用递归或dp或其他方法解决
     */
-    bool isMatch(string s, string p) {
-      if (s.length() == 0){
-          // s串匹配完合法的情况只有p为空，或是 "X*X*"的形式
-          if (p.length() & 1) return false;
-          else {
-              for (int i = 1; i < p.length(); i += 2) {
-                  if (p[i] != '*') return false;
-              }
-          }
-          return true;
-      }
-      if (p.length() == 0) return false;
-      if (p.length() > 1 && p[1] == '*') {
-          if (p[0] == '.' || s[0] == p[0]) {
-              return isMatch(s.substr(1), p) || isMatch(s, p.substr(2));
-          } else return isMatch(s, p.substr(2));
-      } else {
-          if (p[0] == '.' || s[0] == p[0]) {
-              return isMatch(s.substr(1), p.substr(1));
-          } else return false;
-      }
-  }
+    bool isMatch(string s, string p)
+    {
+        if (s.length() == 0)
+        {
+            // s串匹配完合法的情况只有p为空，或是 "X*X*"的形式
+            if (p.length() & 1)
+                return false;
+            else
+            {
+                for (int i = 1; i < p.length(); i += 2)
+                {
+                    if (p[i] != '*')
+                        return false;
+                }
+            }
+            return true;
+        }
+        if (p.length() == 0)
+            return false;
+        if (p.length() > 1 && p[1] == '*')
+        {
+            if (p[0] == '.' || s[0] == p[0])
+            {
+                return isMatch(s.substr(1), p) || isMatch(s, p.substr(2));
+            }
+            else
+                return isMatch(s, p.substr(2));
+        }
+        else
+        {
+            if (p[0] == '.' || s[0] == p[0])
+            {
+                return isMatch(s.substr(1), p.substr(1));
+            }
+            else
+                return false;
+        }
+    }
 };
 
 int main(int argc, char **argv)
 {
-  // initialization, data preparation
+    // initialization, data preparation
 
-  // my solution
-  Solution sln;
+    // my solution
+    Solution sln;
 
-  // correct answer
-  std::string s = "aa";
-  std::string p = "a";
-  auto x = sln.isMatch(s, p);
+    // correct answer
+    std::string s = "aa";
+    std::string p = "a";
+    auto x = sln.isMatch(s, p);
 
-  return EXIT_SUCCESS;
+    return EXIT_SUCCESS;
 }

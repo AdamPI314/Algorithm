@@ -1,5 +1,6 @@
 {
-    "configurations": [{
+    "configurations": [
+        {
             "name": "Mac",
             "includePath": [
                 "${workspaceRoot}",
@@ -30,7 +31,10 @@
                 "${workspaceRoot}",
                 "${workspaceRoot}/../../include",
                 "/usr/include",
-                "/usr/local/include"
+                "/usr/local/include",
+                "/usr/include/x86_64-linux-gnu/c++/5",
+                "/usr/lib/gcc/x86_64-linux-gnu/5/include",
+                "/usr/include/c++/5"
             ],
             "defines": [],
             "intelliSenseMode": "clang-x64",
@@ -77,7 +81,6 @@
                 "databaseFilename": ""
             }
         }
-
     ],
     "version": 3
 }
