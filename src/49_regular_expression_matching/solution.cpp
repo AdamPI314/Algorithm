@@ -39,42 +39,41 @@ class Solution
     */
     bool isMatch(string s, string p)
     {
-        if (s.length() == 0)
-        {
-            // s串匹配完合法的情况只有p为空，或是 "X*X*"的形式
-            if (p.length() & 1)
+        if (s.size() == 0) {
+            // p.size() is zero or p is X*X*
+            if (p.size() & 1)
                 return false;
-            else
-            {
-                for (int i = 1; i < p.length(); i += 2)
-                {
-                    if (p[i] != '*')
-                        return false;
-                }
+            for (std::size_t i = 1; i < p.size(); i += 2) {
+                if (p[i] != '*')
+                    return false;
             }
             return true;
         }
-        if (p.length() == 0)
+        if (p.size() == 0)
             return false;
-        if (p.length() > 1 && p[1] == '*')
-        {
-            if (p[0] == '.' || s[0] == p[0])
-            {
-                return isMatch(s.substr(1), p) || isMatch(s, p.substr(2));
+        // if p has '*', gonna check match 0 time, 1 time, 2 times or more times
+        if (p.size() > 1 && p[1] == '*') {
+            if (compare(s[0], p[0])) {
+                return isMatch(s, p.substr(2)) || isMatch(s.substr(1), p);
             }
             else
                 return isMatch(s, p.substr(2));
         }
-        else
-        {
-            if (p[0] == '.' || s[0] == p[0])
-            {
+        else {
+            if (compare(s[0], p[0]))
                 return isMatch(s.substr(1), p.substr(1));
-            }
             else
                 return false;
         }
+
     }
+
+    bool compare(char c, char p) {
+        if (p == '.' || c == p)
+            return true;
+        return false;
+    }
+    
 };
 
 int main(int argc, char **argv)
