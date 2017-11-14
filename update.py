@@ -24,6 +24,7 @@ class MyStr(str):
             return int(self) > int(other)
         return NotImplemented
 
+
 if __name__ == "__main__":
     fileDir = os.path.abspath(os.path.join(
         os.path.realpath(sys.argv[0]), os.pardir))
@@ -35,8 +36,9 @@ if __name__ == "__main__":
     index = max([int(x) for x in data['problems'].keys()]) + 1
     newProblem = copy.deepcopy(data['problems']['1'])
 
-    newProblem['date'] = getDate.get_date() 
-    newProblem['Address'] = ''
+    newProblem['date'] = getDate.get_date()
+    # newProblem['Address'] = ''
+    newProblem['Address'] = data['problems'][str(index - 1)]['Address']
     newProblem['Geolocation'] = geolocation.getGeolocation()
     newProblem['problem'] = ''
     newProblem['description'] = ''
