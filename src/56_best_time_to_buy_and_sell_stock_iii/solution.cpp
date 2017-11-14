@@ -36,7 +36,41 @@ public:
     // write your code here
     if (prices.size() <= 1)
       return 0;
-    return -1;
+    vector<int> f_diff(prices.size(), 0);
+    for (int i = 1; i < f_diff.size(); ++i)
+    {
+      f_diff[i] = prices[i] - prices[i - 1];
+      f_diff[i] += f_diff[i - 1];
+    }
+    // forward maximum, up to current point
+    vector<int> f_max(f_diff.size(), 0);
+    int fmin = 0;
+    for (int i = 1; i < f_diff.size(); ++i)
+    {
+      f_max[i] = max(f_max[i - 1], f_diff[i] - fmin);
+      fmin = min(fmin, f_diff[i]);
+    }
+
+    vector<int> b_diff(prices.size(), 0);
+    for (int i = b_diff.size() - 2; i >= 0; --i)
+    {
+      b_diff[i] = prices[i] - prices[i + 1];
+      b_diff[i] += b_diff[i + 1];
+    }
+    // backward maximum, up to current point
+    vector<int> b_max(b_diff.size(), 0);
+    int bmax = 0;
+    for (int i = b_diff.size() - 2; i >= 0; --i)
+    {
+      b_max[i] = max(b_max[i + 1], bmax - b_diff[i]);
+      bmax = max(bmax, b_diff[i]);
+    }
+    int result = f_max.back();
+    for (int i = 0; i < f_diff.size() - 1; ++i)
+    {
+      result = max(result, f_max[i] + b_max[i + 1]);
+    }
+    return result;
   }
 };
 
