@@ -68,6 +68,20 @@ public:
 
     return result;
   }
+
+  // int maxProfit(vector<int> &prices)
+  // {
+  //   // write your code here
+  //   if (prices.empty())
+  //     return 0;
+  //   int i = prices.size() - 1, ans = 0, maxp = prices[i];
+  //   for (--i; i >= 0; --i)
+  //   {
+  //     ans = max(ans, maxp - prices[i]);
+  //     maxp = max(maxp, prices[i]);
+  //   }
+  //   return ans;
+  // }
 };
 
 int main(int argc, char **argv)
