@@ -27,43 +27,47 @@ using namespace std;
 class Solution
 {
 public:
-  /*
-     * @param source : A string
-     * @param target: A string
-     * @return: A string denote the minimum window, return "" if there is no such a string
-     */
-  string minWindow(string &source, string &target)
+  string minWindow(string s, string t)
   {
-    // write your code here
-    string ans;
-    int n1 = source.size();
-    int n2 = target.size();
-    if (n2 > n1 || n1 == 0)
-      return ans;
-
-    // dict
-    unordered_map<char, int> s_map;
-    unordered_map<char, int> t_map;
-
-    for (auto x : source)
-      s_map[x] += 1;
-    for (auto x : target)
-      t_map[x] += 1;
-
-    // can not find case
-    for (auto x : t_map)
+    unordered_map<char, int> mp;
+    for (char now : t)
     {
-      if (s_map.find(x.first) == s_map.end())
-        return "";
-      else
-      {
-        if (s_map.at(x.first) < x.second)
-          return "";
-      }
+      mp[now]++;
     }
-    // can find case
-
-    return ans;
+    // count indicates, between i and j, whether we find every thing
+    int count = mp.size();
+    int j = 0;
+    int ans = INT_MAX;
+    string res;
+    for (int i = 0; i < s.size(); i++)
+    {
+      while (count != 0 && j < s.size())
+      {
+        // find a char, suppose use this char
+        mp[s[j]]--;
+        if (mp[s[j]] == 0)
+        {
+          // this char is be taken care of
+          count--;
+        }
+        j++;
+        if (count == 0)
+        {
+          break;
+        }
+      }
+      if (count == 0 && j - i < ans)
+      {
+        ans = j - i;
+        res = s.substr(i, j - i);
+      }
+      if (mp[s[i]] == 0)
+      {
+        count++;
+      }
+      mp[s[i]]++;
+    }
+    return res;
   }
 };
 
