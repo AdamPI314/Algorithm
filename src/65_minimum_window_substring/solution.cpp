@@ -29,45 +29,49 @@ class Solution
 public:
   string minWindow(string s, string t)
   {
-    unordered_map<char, int> mp;
-    for (char now : t)
+    string ans;
+    unordered_map<char, int> smp;
+    unordered_map<char, int> tmp;
+
+    for (auto c : t)
     {
-      mp[now]++;
+      tmp[c] += 1;
     }
-    // count indicates, between i and j, whether we find every thing
-    int count = mp.size();
-    int j = 0;
-    int ans = INT_MAX;
-    string res;
-    for (int i = 0; i < s.size(); i++)
+    int start_i = 0, end_i = 0;
+    int min_len = INT_MAX;
+    for (; start_i < s.size(); ++start_i)
     {
-      while (count != 0 && j < s.size())
+      while (!valid(smp, tmp) && end_i < s.size())
       {
-        // find a char, suppose use this char
-        mp[s[j]]--;
-        if (mp[s[j]] == 0)
+        smp[s[end_i]]++;
+        end_i++;
+      }
+      if (valid(smp, tmp))
+      {
+        // find a shorter one
+        if (end_i - start_i < min_len)
         {
-          // this char is be taken care of
-          count--;
-        }
-        j++;
-        if (count == 0)
-        {
-          break;
+          min_len = min(min_len, end_i - start_i);
+          ans = s.substr(start_i, end_i - start_i);
         }
       }
-      if (count == 0 && j - i < ans)
-      {
-        ans = j - i;
-        res = s.substr(i, j - i);
-      }
-      if (mp[s[i]] == 0)
-      {
-        count++;
-      }
-      mp[s[i]]++;
+      // without current start_i, see what's gonna to happen
+      smp[s[start_i]]--;
     }
-    return res;
+
+    return ans;
+  }
+
+  bool valid(const unordered_map<char, int> &smp, const unordered_map<char, int> &tmp) const
+  {
+    for (auto const &x : tmp)
+    {
+      if (smp.find(x.first) == smp.end())
+        return false;
+      if (smp.at(x.first) < x.second)
+        return false;
+    }
+    return true;
   }
 };
 
