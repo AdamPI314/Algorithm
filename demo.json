@@ -1666,6 +1666,31 @@
             "notes": "",
             "problem": "Minimum Subarray",
             "tags": []
+        },
+        "67": {
+            "Address": "Central Campus Mall, Boulder, CO 80302, USA",
+            "Geolocation": {
+                "city": "Boulder",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "128.138.65.91",
+                "latitude": "40.015",
+                "longitude": "-105.2706",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80309"
+            },
+            "date": "Wed, Nov 22, 2017 03:20:36 PM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/n-queens-ii",
+                "lintcode": "http://www.lintcode.com/en/problem/n-queens-ii/"
+            },
+            "notes": "",
+            "problem": "N-Queens II",
+            "tags": []
         }
     }
 }
