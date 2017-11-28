@@ -1,1 +1,1 @@
-70 Majority Number.
+71 Majority Number II.
