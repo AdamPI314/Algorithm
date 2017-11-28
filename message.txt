@@ -1,1 +1,1 @@
-69 Reverse Linked List II.
+70 Majority Number.
