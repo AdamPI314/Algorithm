@@ -1791,6 +1791,31 @@
             "notes": "",
             "problem": "Majority Number II",
             "tags": []
+        },
+        "72": {
+            "Address": "Central Campus Mall, Boulder, CO 80302, USA",
+            "Geolocation": {
+                "city": "Boulder",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "128.138.65.91",
+                "latitude": "40.015",
+                "longitude": "-105.2706",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80309"
+            },
+            "date": "Mon, Nov 27, 2017 05:44:19 PM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/majority-number-iii",
+                "lintcode": "http://www.lintcode.com/en/problem/majority-number-iii/"
+            },
+            "notes": "",
+            "problem": "Majority Number III",
+            "tags": []
         }
     }
 }
