@@ -1841,6 +1841,31 @@
             "notes": "",
             "problem": "Sort Letters by Case",
             "tags": []
+        },
+        "74": {
+            "Address": "356 Fox Ln, Superior, CO 80027, USA",
+            "Geolocation": {
+                "city": "Erie",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "2601",
+                "latitude": "40.0657",
+                "longitude": "-105.0133",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80516"
+            },
+            "date": "Wed, Nov 29, 2017 10:42:37 AM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/product-of-array-exclude-itself",
+                "lintcode": "http://www.lintcode.com/en/problem/product-of-array-exclude-itself/"
+            },
+            "notes": "",
+            "problem": "Product of Array Exclude Itself",
+            "tags": []
         }
     }
 }
