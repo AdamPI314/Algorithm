@@ -1866,6 +1866,31 @@
             "notes": "",
             "problem": "Product of Array Exclude Itself",
             "tags": []
+        },
+        "75": {
+            "Address": "356 Fox Ln, Superior, CO 80027, USA",
+            "Geolocation": {
+                "city": "Erie",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "2601",
+                "latitude": "40.0657",
+                "longitude": "-105.0133",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80516"
+            },
+            "date": "Wed, Nov 29, 2017 11:13:54 AM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/reverse-words-in-a-string",
+                "lintcode": "http://www.lintcode.com/en/problem/reverse-words-in-a-string/"
+            },
+            "notes": "",
+            "problem": "Reverse Words in a String",
+            "tags": []
         }
     }
 }
