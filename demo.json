@@ -1966,6 +1966,31 @@
             "notes": "",
             "problem": "Compare Strings",
             "tags": []
+        },
+        "79": {
+            "Address": "Central Campus Mall, Boulder, CO 80302, USA",
+            "Geolocation": {
+                "city": "Boulder",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "128.138.143.155",
+                "latitude": "40.015",
+                "longitude": "-105.2706",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80309"
+            },
+            "date": "Mon, Feb 19, 2018 04:39:38 PM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/construct-binary-tree-from-inorder-and-postorder-traversal/",
+                "lintcode": "http://www.lintcode.com/en/problem/construct-binary-tree-from-inorder-and-postorder-traversal/"
+            },
+            "notes": "",
+            "problem": "Construct Binary Tree from Inorder and Postorder Traversal",
+            "tags": []
         }
     }
 }
