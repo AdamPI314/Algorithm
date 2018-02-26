@@ -1,1 +1,1 @@
-81 Longest Common Subsequence.
+82 Longest Common Prefix.
