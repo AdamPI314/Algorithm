@@ -2066,6 +2066,31 @@
             "notes": "",
             "problem": "Longest Common Prefix",
             "tags": []
+        },
+        "83": {
+            "Address": "Central Campus Mall, Boulder, CO 80302, USA",
+            "Geolocation": {
+                "city": "Boulder",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "198.11.31.184",
+                "latitude": "40.015",
+                "longitude": "-105.2706",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80309"
+            },
+            "date": "Thu, Mar 01, 2018 10:26:34 PM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/reverse-3-digit-integer/",
+                "lintcode": "http://www.lintcode.com/en/problem/reverse-3-digit-integer/"
+            },
+            "notes": "",
+            "problem": "Reverse 3-digit Integer",
+            "tags": []
         }
     }
 }

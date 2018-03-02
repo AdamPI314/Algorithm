@@ -1,1 +1,1 @@
-82 Longest Common Prefix.
+83 Reverse 3-digit Integer.
