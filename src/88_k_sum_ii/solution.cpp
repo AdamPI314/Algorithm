@@ -33,30 +33,33 @@ public:
      * @param targer: an integer
      * @return: A list of lists of integer
      */
+  std::vector<std::vector<int>> ans;
   vector<vector<int>> kSumII(vector<int> &A, int k, int target)
   {
     // write your code here
-    std::vector<std::vector<int>> ans;
-    backtrack(A, k, 0, ans);
+    std::vector<int> tmp;
+    backtrack(A, k, target, 0, tmp);
     return ans;
   }
 
-  void backtrack(vector<int> A, int k, int start, vector<vector<int>> &ans)
+  void backtrack(vector<int> A, int k, int target, int start, vector<int> tmp)
   {
-    if (start == A.size())
+    if (start >= A.size() || k <= 0 || target < 0)
     {
-      ans.push_back(std::vector<int>(A.begin(), A.begin() + k));
       return;
     }
-    // swap
-    for (int i = start; i < A.size(); ++i)
+    // whether have current point of not
+    // have current point
+    tmp.push_back(A[start]);
+    // whether change happens, check result
+    if (k == 1 && target == A[start])
     {
-      std::swap(A[i], A[start]);
-      // every swap create a new combination
-      // save previous first
-      backtrack(A, k, start + 1, ans);
-      std::swap(A[i], A[start]);
+      this->ans.push_back(tmp);
     }
+    backtrack(A, k - 1, target - A[start], start + 1, tmp);
+    // don't have current point
+    tmp.pop_back();
+    backtrack(A, k, target, start + 1, tmp);
   }
 };
 
