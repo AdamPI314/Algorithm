@@ -2241,6 +2241,31 @@
             "notes": "",
             "problem": "Binary Tree Serialization",
             "tags": []
+        },
+        "90": {
+            "Address": "Central Campus Mall, Boulder, CO 80302, USA",
+            "Geolocation": {
+                "city": "Erie",
+                "country_code": "US",
+                "country_name": "United States",
+                "ip": "2601",
+                "latitude": "40.0657",
+                "longitude": "-105.0133",
+                "metro_code": "751",
+                "region_code": "CO",
+                "region_name": "Colorado",
+                "time_zone": "America/Denver",
+                "zip_code": "80516"
+            },
+            "date": "Sun, Mar 11, 2018 01:05:19 PM",
+            "description": "",
+            "link": {
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/minimum-adjustment-cost/",
+                "lintcode": "http://www.lintcode.com/en/problem/minimum-adjustment-cost/"
+            },
+            "notes": "",
+            "problem": "Minimum Adjustment Cost",
+            "tags": []
         }
     }
 }
