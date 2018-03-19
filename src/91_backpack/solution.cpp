@@ -37,14 +37,25 @@ public:
     // write your code here
     std::sort(A.begin(), A.end());
     int n = A.size();
-    if (m <= 0 || n == 0 || m > A[0])
+    if (m <= 0 || n == 0 || m < A[0])
       return 0;
-    
+
     // bellman-ford algorithm, minimize m - sum(A*)
-
-
-    return 0;
-
+    std::vector<bool> f(m + 1, false);
+    f[0] = true;
+    // iterate over nodes, not the first one
+    for (int i = 0; i < n; ++i)
+    {
+      // iterate over edges
+      for (int j = m; j >= A[i]; --j)
+      {
+        // updating f vector
+        f[j] = f[j] || f[j - A[i]];
+      } // j
+    }   // i
+    int ans = std::distance(std::find_if(f.rbegin(), f.rend(), [](bool x) { return x; }), f.rend()) - 1;
+    // std::cout << ans << std::endl;
+    return ans;
   }
 };
 
