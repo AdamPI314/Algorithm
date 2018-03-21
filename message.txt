@@ -1,1 +1,1 @@
-95 Remove Duplicates from Sorted Array II.
+96 Convert Sorted List to Balanced BST.
