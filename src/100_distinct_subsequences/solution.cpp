@@ -32,30 +32,35 @@ public:
      * @param : A string
      * @return: Count the number of distinct subsequences
      */
-  int numDistinct(string S, string T)
+  int numDistinct(string &S, string &T)
   {
     // write your code here
-    return backtrack(S, T);
-  }
-
-  int backtrack(string S, string T)
-  {
-    if (T.size() == 0)
-      return 1;
-    if (S.size() == 0 || T.size() > S.size())
-      return 0;
+    vector<vector<int>> f(T.length() + 1, vector<int>(S.length() + 1));
+    for (int i = 0; i <= T.length(); i++)
+      f[i][0] = 0;
+    for (int i = 0; i <= S.length(); i++)
+      f[0][i] = 0;
     // unit element
-    if (S == T)
-      return 1;
-    // guaranteed that S.size() >= 1, T.size() >= 1, S.size() >= T.size()
-    // find first of
-    auto beg = S.find_first_of(T.front());
-    auto end = S.find_last_of(T.back());
-    if (beg < 0 || beg > S.size() || end < 0 || end > S.size() || beg > end)
-      return 0;
+    for (int i = 1; i <= S.length(); i++)
+    {
+      if (T[0] == S[i - 1])
+        f[1][i] = f[1][i - 1] + 1;
+      else
+        f[1][i] = f[1][i - 1];
+    }
 
-    // contingent operation, use current point or not
-    return backtrack(S.substr(beg + 1, end - beg), T.substr(1)) + backtrack(S.substr(beg + 1, end - beg + 1), T);
+    for (int i = 2; i <= T.length(); i++)
+    {
+      for (int j = 1; j <= S.length(); j++)
+      {
+        // contingent operation, wether the ith element in T is covered or not
+        if (T[i - 1] == S[j - 1])
+          f[i][j] = f[i - 1][j - 1] + f[i][j - 1];
+        else
+          f[i][j] = f[i][j - 1];
+      }
+    }
+    return f[T.length()][S.length()];
   }
 };
 
