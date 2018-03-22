@@ -33,6 +33,7 @@ public:
     ListNode **ppNext = &root;
     while (head)
     {
+      // it is guaranteed current value is brand new value, this is a conditional assumption made here
       if (head->next == NULL || head->next->val != head->val)
       {
         *ppNext = head;
@@ -42,6 +43,7 @@ public:
       else
       {
         int val = head->val;
+        // until find a new value
         do
         {
           head = head->next;
