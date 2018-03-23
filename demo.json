@@ -2535,11 +2535,11 @@
             "date": "Thu, Mar 22, 2018 03:31:11 PM",
             "description": "",
             "link": {
-                "jiuzhangsuanfa": "",
-                "lintcode": ""
+                "jiuzhangsuanfa": "http://www.jiuzhang.com/solution/edit-distance/",
+                "lintcode": "http://www.lintcode.com/en/problem/edit-distance/"
             },
             "notes": "",
-            "problem": "",
+            "problem": "Edit Distance",
             "tags": []
         }
     }
