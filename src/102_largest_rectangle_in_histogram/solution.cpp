@@ -31,25 +31,27 @@ public:
      * @param height: A list of integer
      * @return: The area of largest rectangle in the histogram
      */
+  // good explanation
+  // https://www.youtube.com/watch?v=VNbkzsnllsU
   int largestRectangleArea(vector<int> &height)
   {
 
     int ret = 0;
     height.push_back(0);
-    vector<int> index;
+    vector<int> position;
 
     for (int i = 0; i < height.size(); i++)
     {
-      while (index.size() > 0 && height[index.back()] >= height[i])
+      while (position.size() > 0 && height[position.back()] >= height[i])
       {
-        int h = height[index.back()];
-        index.pop_back();
+        int h = height[position.back()];
+        position.pop_back();
 
-        int sidx = index.size() > 0 ? index.back() : -1;
+        int sidx = position.size() > 0 ? position.back() : -1;
         if (h * (i - sidx - 1) > ret)
           ret = h * (i - sidx - 1);
       }
-      index.push_back(i);
+      position.push_back(i);
     }
 
     return ret;
