@@ -36,25 +36,26 @@ public:
   int largestRectangleArea(vector<int> &height)
   {
 
-    int ret = 0;
+    int ans = 0;
     height.push_back(0);
     vector<int> position;
 
     for (int i = 0; i < height.size(); i++)
     {
-      while (position.size() > 0 && height[position.back()] >= height[i])
+      while (position.size() > 0 && height[i] <= height[position.back()])
       {
         int h = height[position.back()];
         position.pop_back();
 
-        int sidx = position.size() > 0 ? position.back() : -1;
-        if (h * (i - sidx - 1) > ret)
-          ret = h * (i - sidx - 1);
+        int idx_low = position.size() > 0 ? position.back() : -1;
+        ans = max(ans, h * (i - idx_low + 1));
       }
+
+      // always push current index into stack, since it can be idx_low for future rectangle
       position.push_back(i);
     }
 
-    return ret;
+    return ans;
   }
 };
 
