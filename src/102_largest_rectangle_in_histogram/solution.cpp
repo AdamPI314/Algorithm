@@ -48,7 +48,7 @@ public:
         position.pop_back();
 
         int idx_low = position.size() > 0 ? position.back() : -1;
-        ans = max(ans, h * (i - idx_low + 1));
+        ans = max(ans, h * (i - idx_low - 1));
       }
 
       // always push current index into stack, since it can be idx_low for future rectangle
